@@ -1,0 +1,30 @@
+Ćwiczenie 3
+
+Jednym z historycznych sposobów szyfrowania tajnych wiadomości jest 
+tzw. kod Cezara. Opiera się on na przesunięciu liter o trzy pozycje 
+w przód: 'a' w 'd', 'B' w 'E', 'z' w 'c'. Z matematycznego 
+punktu widzenia jest to dodawanie modulo. 
+Ponieważ kod ASCII ma wszystkie litery ułożone obok siebie, 
+można to wykorzystać i zapisać algorytm szyfrujący tak:
+
+char c, z; /* oryginalna i zaszyfrowana litera */
+if (c jest małą literą ASCII)
+    z = (c - 'a' + 3) % 26 + 'a';
+else if (c jest wielką literą ASCII)
+    z = (c - 'A' + 3) % 26 + 'A';
+else
+    z = c;
+
+Jak widać, szyfrowane są tylko litery; spacje, 
+znaki przestankowe i inne takie pozostają bez zmian. 
+Do "innych takich" zaliczają się również polskie ogonki. 
+Zdekodowanie wiadomości wymaga wykonania tego samego algorytmu, 
+ale tym razem z przesunięciem wynoszącym -3. 
+Oczywiście nic nie stoi na przeszkodzie, aby zamiast przesunięć o 3/-3, 
+stosować przesunięcia o dowolną inną liczbę, uzgodnioną pomiędzy nadawcą,
+a odbiorcą tajnych komunikatów. 
+
+Zaimplementuj szablony funkcji szyfrujących i deszyfrujących łańcuchy. 
+Wielkość przesunięcia ma być podawana jako parametr szablonu. 
+Rozdziel kod na dwa pliki źródłowe - jeden zawierający funkcje szyfrujące 
+(będący swego rodzaju mini-biblioteką), drugi zawierający main(). 
