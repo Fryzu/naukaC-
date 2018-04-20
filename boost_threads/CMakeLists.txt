@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 2.8)
+project(Threads)
+set(CMAKE_CXX_FLAGS "-std=c++11 -pthread")
+
+find_package(GTest REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system filesystem thread)
+include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
+
+add_executable(testy tests.cpp)
+
+target_link_libraries(testy ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(testy ${Boost_LIBRARIES})
+
