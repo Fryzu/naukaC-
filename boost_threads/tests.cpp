@@ -82,3 +82,12 @@ TEST(Threads, ObjectWithThread) {
     testWorker.join();
 
 }
+
+TEST(Threads, Join) {
+
+    boost::thread testThread(sleepFor3Seconds);
+    std::cout << "1 thread waits" << std::endl;
+    testThread.join();
+    std::cout << "1 thread active" << std::endl;
+
+}
